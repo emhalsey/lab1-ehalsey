@@ -4,7 +4,7 @@
 
 Make sure to type your commands correctly, such as `d2b(100)` or `enc(Rap Monster)`. Otherwise, the program will not work as expected.
 
-Initialize the program through the terminal by finding the file path, then activating it with `/lab1-ehalsey`. When prompted, enter one of the following commands below.
+Initialize the program through the terminal by finding the file path, then activating it with `./lab1-ehalsey`. When prompted, enter one of the following commands below.
 
 * `d2b(number)`  | Convert decimal to binary.
 
