@@ -121,14 +121,14 @@ int main(void) {
         fgets(buffer, 100, stdin);  // get the user input from the command line
         buffer[strcspn(buffer, "\n")] = '\0'; // remove new line at end of string from fgets
         char *cmd = strtok(buffer, "(");   // tokenize the input up to "(" as the first delimiter
+        if (cmd != NULL && strcmp(cmd, "exit") == 0) { exit(0); }
+
         char *arg = strtok(NULL, ")"); // getting next token, which should be the content to run the method on
 
         if (cmd == NULL || arg == NULL) { error(); continue; }
 
         // compare the first token to the possible list of commands. if one matches, run that command with the input.
-        if (strcmp(cmd, "exit") == 0 && cmd != NULL) {
-            exit(0);
-        } if (strcmp(cmd,"d2b")==0 || strcmp(cmd,"gcd")==0) { // combined because inputs are ints
+        if (strcmp(cmd,"d2b")==0 || strcmp(cmd,"gcd")==0) { // combined because inputs are ints
             char *endptr;
             long num = strtol(arg, &endptr, 10); // checking to see if arg is a base 10 number
             if (strcmp(cmd, "d2b") == 0) {
