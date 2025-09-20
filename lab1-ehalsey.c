@@ -126,7 +126,9 @@ int main(void) {
         if (cmd == NULL || arg == NULL) { error(); continue; }
 
         // compare the first token to the possible list of commands. if one matches, run that command with the input.
-        if (strcmp(cmd,"d2b")==0 || strcmp(cmd,"gcd")==0) { // combined because inputs are ints
+        if (strcmp(cmd, "exit") == 0 && cmd != NULL) {
+            exit(0);
+        } if (strcmp(cmd,"d2b")==0 || strcmp(cmd,"gcd")==0) { // combined because inputs are ints
             char *endptr;
             long num = strtol(arg, &endptr, 10); // checking to see if arg is a base 10 number
             if (strcmp(cmd, "d2b") == 0) {
@@ -147,8 +149,6 @@ int main(void) {
             if (strlen(arg) == 0) { error(); continue; }
             if (strcmp(cmd,"enc")==0) enc(arg);
             else dec(arg);
-        } else if (strcmp(cmd,"exit")==0) {
-            exit(0);
         } else {
             error();
         }
